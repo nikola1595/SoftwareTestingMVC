@@ -1,0 +1,55 @@
+﻿@model IspitMVCProjekat.Models.Student
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Brisanje studenta";
+}
+
+<h4>Brisanje studenta</h4>
+
+<h3>Da li ste sigurni da želite da obrišete podatke o studentu sa brojem indexa @Model.BrojIndexa?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexa)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grad)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BrojIndexa" />
+        <input type="submit" value="Obriši studenta" id="danger" class="btn btn-danger" />
+    </form>
+    <div>
+        <br />
+        @Html.ActionLink("Nazad na listu studenata", "Index", "Studenti", null, new {id= "secondary", @class = "btn btn-secondary" })
+    </div>
+
+</div>

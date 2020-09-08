@@ -1,0 +1,29 @@
+﻿@model IspitMVCProjekat.Models.Student
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Detalji";
+}
+
+
+    <h4 style="text-align:center">Student: @Model.Ime @Model.Prezime</h4>
+    <table class="table table-hover table-striped" id="details">
+        <tr>
+            <th>Broj indexa</th>
+            <th>Predmet</th>
+            <th>Ocena</th>
+        </tr>
+        <tbody>
+            @foreach (var item in ViewBag.Ispiti)
+            {
+                <tr>
+
+                    <td>
+                        @item.BrojIndexa
+                    </td>
+                    <td>@item.Predmet.ImePredmeta</td>
+                    <td>@item.Ocena</td>
+                </tr>
+            }
+        </tbody>
+    </table>

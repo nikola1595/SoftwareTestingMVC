@@ -1,0 +1,56 @@
+﻿@model IspitMVCProjekat.Models.Ispit
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Unos novog ispita";
+}
+
+
+<div class="row">
+<div class="col-md-4">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <input type="hidden" asp-for="IspitId" />
+            <label>Izaberite studenta</label>
+            <input type="search" required list="data1" placeholder="unesite studenta" id="searchid" name="Student" class="form-control" />
+            <datalist id="data1">
+                @foreach (var item in ViewBag.Student)
+                {
+                <option value="@item.BrojIndexa">@item.BrojIndexa | @item.Ime | @item.Prezime</option>
+                }
+            </datalist>
+            @Html.ValidationMessageFor(i => i.BrojIndexa, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Izaberite predmet</label>
+            <input type="search" required list="data2" placeholder="unesite predmet" id="searchid" name="Predmet" class="form-control" />
+            <datalist id="data2">
+                @foreach (var item in ViewBag.Predmet)
+                {
+                    <option value="@item.ImePredmeta"></option>
+                }
+            </datalist>
+            @Html.ValidationMessageFor(i => i.PredmetId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Ocena" class="control-label"></label>
+            <input asp-for="Ocena" class="form-control" />
+            <span asp-validation-for="Ocena" class="text-danger"></span>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Unesi ispit" class="btn btn-primary" id="success" />
+        </div>
+        @Html.ActionLink("Nazad na listu ispita", "Index", "Ispiti", null, new { @class = "btn btn-secondary" })
+    </form>
+</div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

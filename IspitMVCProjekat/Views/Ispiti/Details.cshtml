@@ -1,0 +1,61 @@
+﻿@model IspitMVCProjekat.Models.Ispit
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Detalji";
+}
+
+
+
+<div>
+    <h4>Detalji</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexa):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Predmet.ImePredmeta):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Predmet.ImePredmeta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ocena):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ocena)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexaNavigation.Ime):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexaNavigation.Ime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexaNavigation.Prezime):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexaNavigation.Prezime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexaNavigation.Adresa):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexaNavigation.Adresa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojIndexaNavigation.Grad):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojIndexaNavigation.Grad)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary" id="primary">Nazad na listu ispita</a>
+</div>

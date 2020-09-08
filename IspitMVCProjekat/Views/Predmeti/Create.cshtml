@@ -1,0 +1,35 @@
+﻿@model IspitMVCProjekat.Models.Predmet
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Unos novog predmeta";
+}
+
+
+
+<h4>Unos novog predmeta</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ImePredmeta" class="control-label"></label>
+                <input asp-for="ImePredmeta" class="form-control" />
+                <span asp-validation-for="ImePredmeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Unos predmeta" class="btn btn-success" id="success" />
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

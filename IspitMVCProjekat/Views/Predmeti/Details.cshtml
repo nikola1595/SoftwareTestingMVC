@@ -1,0 +1,30 @@
+﻿@model IspitMVCProjekat.Models.Predmet
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Detalji";
+}
+
+
+
+<div>
+    <h4>Detalji</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PredmetId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PredmetId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImePredmeta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImePredmeta)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index"class="btn btn-primary" id="primary">Nazad na listu</a>
+</div>

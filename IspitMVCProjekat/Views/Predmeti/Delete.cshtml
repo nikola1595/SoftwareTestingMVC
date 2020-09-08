@@ -1,0 +1,37 @@
+﻿@model IspitMVCProjekat.Models.Predmet
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Brisanje predmeta";
+}
+
+<h4>Brisanje predmeta</h4>
+
+<h3>Da li ste sigurni da želite da obrišete ovaj predmet?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PredmetId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PredmetId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImePredmeta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImePredmeta)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PredmetId" />
+        <input type="submit" value="Obriši predmet" class="btn btn-danger" id="danger" />
+    </form>
+    <div>
+        <br />
+        @Html.ActionLink("Nazad na listu predmeta", "Index", "Predmeti", null, new {id= "secondary", @class = "btn btn-secondary" })
+    </div>
+
+</div>

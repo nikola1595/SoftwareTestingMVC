@@ -1,0 +1,92 @@
+﻿@model IEnumerable<IspitMVCProjekat.Models.Student>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Lista studenata";
+}
+
+<h4>Lista studenata</h4>
+<p>
+    @Html.ActionLink("Unos novog studenta", "Create", "Studenti", null, new { @class = "btn btn-primary" })
+</p>
+
+
+<style>
+    th, td {
+        padding: 5px;
+        text-align: center;
+        padding-right: 5px;
+    }
+</style>
+
+
+
+<table class="table table-bordered table-hover table-responsive-md table-responsive-sm table-responsive-lg" id="tblStudenti">
+    <thead style="background-color:cadetblue">
+        <tr>
+            <th>Broj indexa</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+            <th>Grad</th>
+            <th>Opcije</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr >
+                <td>@item.BrojIndexa</td>
+                <td>@item.Ime</td>
+                <td>@item.Prezime</td>
+                <td>@item.Adresa</td>
+                <td>@item.Grad</td>
+                <td>
+                    <a href='@Url.Action("Details", new { brIndexa=item.BrojIndexa })' class="ajax btn btn-info">Detaljnije</a>
+                    @Html.ActionLink("Izmena", "Edit", null, new { brIndexa = item.BrojIndexa }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Brisanje", "Delete", null, new { brIndexa = item.BrojIndexa }, new { @class = "btn btn-danger" })
+                </td>
+                
+            </tr>
+           
+        }
+
+    </tbody>
+   
+</table>
+
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#tblStudenti').dataTable({
+                paging: true,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Serbian_latin.json"
+                }
+            });
+            $(".ajax").on("click", function (e) {
+                e.preventDefault();
+                var elementUrl = $(this).attr('href');
+                $.ajax({
+                    url: elementUrl,
+                    cache: false,
+                    success: function (data) {
+                        bootbox.alert(data);
+                        
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+
+}
+
+

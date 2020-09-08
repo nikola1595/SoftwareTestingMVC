@@ -1,0 +1,56 @@
+﻿@model IspitMVCProjekat.Models.Student
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Unos novog studenta";
+}
+
+
+
+<h4>Unos novog studenta</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BrojIndexa" class="control-label"></label>
+                <input asp-for="BrojIndexa" required class="form-control" />
+                <span asp-validation-for="BrojIndexa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" required class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezime" class="control-label"></label>
+                <input asp-for="Prezime" required class="form-control" />
+                <span asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresa" class="control-label"></label>
+                <input asp-for="Adresa" required class="form-control" />
+                <span asp-validation-for="Adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grad" class="control-label"></label>
+                <input asp-for="Grad" required class="form-control" />
+                <span asp-validation-for="Grad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" id="success" value="Unos studenta" class="btn btn-success" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

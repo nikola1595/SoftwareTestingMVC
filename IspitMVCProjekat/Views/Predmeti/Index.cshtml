@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IspitMVCProjekat.Models.Predmet>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Lista predmeta";
+}
+<p>
+    @Html.ActionLink("Unos novog predmeta", "Create", "Predmeti", null, new { @class = "btn btn-primary" })
+</p>
+<style>
+    th, td {
+        padding: 5px;
+        text-align: center;
+        padding-right: 5px;
+    }
+</style>
+    
+
+<table class="table table-bordered table-hover table-responsive-md table-responsive-sm table-responsive-lg">
+    <thead style="background-color:cadetblue">
+        <tr>
+            <th>Šifra predmeta</th>
+            <th>Naziv predmeta</th>
+            <th>Opcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PredmetId</td>
+                <td>@item.ImePredmeta</td>
+                <td>
+                    @Html.ActionLink("Detaljnije", "Details", null, new { PredmetID = item.PredmetId }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Izmena", "Edit", null, new { PredmetID = item.PredmetId }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Brisanje", "Delete", null, new { PredmetID = item.PredmetId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
