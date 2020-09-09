@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<IspitMVCProjekat.Models.Ispit>
 
-@{ 
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Lista ispita";
 }
@@ -8,7 +8,7 @@
 <h4>Lista ispita</h4>
 
 <p>
-    @Html.ActionLink("Unos novog ispita", "Create", "Ispiti", null, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Unos novog ispita", "Create", "Ispiti", null, new { @class = "btn btn-primary" })
 </p>
 
 <style>
@@ -18,25 +18,25 @@
 </style>
 
 
-<table class="table table-bordered table-hover table-responsive-md table-responsive-sm table-responsive-lg">
+<table class="table table-bordered table-hover table-responsive-md table-responsive-sm table-responsive-lg" id="tblIspiti">
     <thead style="background-color:cadetblue">
         <tr>
             <th>Broj indexa</th>
             @*<th>Ime</th>
-            <th>Prezime</th>*@
+                <th>Prezime</th>*@
             <th>Predmet</th>
             <th>Ocena</th>
             <th>Opcije</th>
-            
+
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>@item.BrojIndexa</td>
                 @*<td>@item.BrojIndexaNavigation.Ime</td>
-                <td>@item.BrojIndexaNavigation.Prezime</td>*@
+                    <td>@item.BrojIndexaNavigation.Prezime</td>*@
                 <td>@item.Predmet.ImePredmeta</td>
                 <td>@item.Ocena</td>
                 <td>
@@ -48,3 +48,18 @@
         }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#tblIspiti').dataTable({
+                paging: true,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Serbian_latin.json"
+                }
+            });
+        });
+    </script>
+
+}

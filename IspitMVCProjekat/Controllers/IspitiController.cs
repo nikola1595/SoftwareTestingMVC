@@ -44,12 +44,14 @@ namespace IspitMVCProjekat.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("IspitId, BrojIndexa, PredmetId, Ocena")] Ispit ispit, string Student, string Predmet)
         {
-            if (ispit.BrojIndexa == null)
+
+
+            _repo.Create(ispit, Student, Predmet);
+
+            if (ispit.BrojIndexa == null || ispit.PredmetId == 0)
             {
                 return View("ErrorIspit");
             }
-
-            _repo.Create(ispit, Student, Predmet);
 
             return RedirectToAction(nameof(Index));
 
@@ -80,15 +82,17 @@ namespace IspitMVCProjekat.Controllers
             {
                 return NotFound();
             }
-            if (ispit.BrojIndexa == null)
-            {
-                return View("ErrorIspit");
-            }
+
 
             if (ModelState.IsValid)
             {
                 _repo.Edit(ispit, Student, Predmet);
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View("ErrorIspit");
+
             }
 
 

@@ -6,24 +6,38 @@
 }
 
 
-    <h4 style="text-align:center">Student: @Model.Ime @Model.Prezime</h4>
-    <table class="table table-hover table-striped" id="details">
+
+<h4 style="text-align:center">Student: @Model.Ime @Model.Prezime</h4>
+<table class="table table-hover table-bordered" id="details">
+    <thead style="background-color:cadetblue">
         <tr>
+            <th>Redni broj</th>
             <th>Broj indexa</th>
             <th>Predmet</th>
             <th>Ocena</th>
         </tr>
-        <tbody>
-            @foreach (var item in ViewBag.Ispiti)
-            {
-                <tr>
-
-                    <td>
-                        @item.BrojIndexa
-                    </td>
-                    <td>@item.Predmet.ImePredmeta</td>
-                    <td>@item.Ocena</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    </thead>
+    <tbody>
+        @{
+            float ProsecnaOcena = 0;
+            float sum = 0;
+            var counter = 0;
+        }
+        @foreach (var item in ViewBag.Ispiti)
+        {
+            sum += item.Ocena;
+            counter++;
+            ProsecnaOcena = sum / counter;
+            <tr>
+                <td>@counter.</td>
+                <td>
+                    @item.BrojIndexa
+                </td>
+                <td>@item.Predmet.ImePredmeta</td>
+                <td>@item.Ocena</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+<p style="text-align:right">Prosecna ocena: @ProsecnaOcena.ToString("0.00")</p>

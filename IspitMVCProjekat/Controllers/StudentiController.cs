@@ -121,6 +121,7 @@ namespace IspitMVCProjekat.Controllers
             ViewBag.Ispiti = _repo.Query(brIndexa);
 
             return View(student);
+
         }
 
 

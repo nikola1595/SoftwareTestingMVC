@@ -31,7 +31,9 @@ namespace IspitMVCProjekat.Repositories
         {
             var StudentIme = StudentImeFunc(Student);
             var PredmetIme = PredmetImeFunc(Predmet);
-            if(StudentIme == null || PredmetIme == null)
+
+
+            if (StudentIme == null || PredmetIme == null)
             {
                 return ispit;
             }
@@ -63,6 +65,8 @@ namespace IspitMVCProjekat.Repositories
 
             var ispit = _context.Ispit.Include(s => s.BrojIndexaNavigation)
                 .Include(p => p.Predmet).FirstOrDefault(i => i.IspitId == IspitID);
+
+            
 
             return ispit;
         }
