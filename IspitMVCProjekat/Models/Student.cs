@@ -15,23 +15,24 @@ namespace IspitMVCProjekat.Models
         public string BrojIndexa { get; set; }
         [RegularExpression("A-Za-z+")]
         public string Ime { get; set; }
+        [RegularExpression("A-Za-z+")]
         public string Prezime { get; set; }
         public string Adresa { get; set; }
         public string Grad { get; set; }
         public virtual ICollection<Ispit> Ispit { get; set; }
 
 
-        public bool Empty
-        {
-            get
-            {
-                return (BrojIndexa == null &&
-                        string.IsNullOrWhiteSpace(Ime) &&
-                        string.IsNullOrWhiteSpace(Prezime) &&
-                        string.IsNullOrWhiteSpace(Adresa) &&
-                        string.IsNullOrWhiteSpace(Grad));
-            }
-        }
+        //public bool Empty
+        //{
+        //    get
+        //    {
+        //        return (BrojIndexa == null &&
+        //                string.IsNullOrWhiteSpace(Ime) &&
+        //                string.IsNullOrWhiteSpace(Prezime) &&
+        //                string.IsNullOrWhiteSpace(Adresa) &&
+        //                string.IsNullOrWhiteSpace(Grad));
+        //    }
+        //}
     }
 }
     
