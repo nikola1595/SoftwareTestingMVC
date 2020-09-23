@@ -13,9 +13,9 @@ namespace IspitMVCProjekat.Models
 
         [Display(Name = "Broj indexa")]
         public string BrojIndexa { get; set; }
-        [RegularExpression("A-Za-z+")]
+        
         public string Ime { get; set; }
-        [RegularExpression("A-Za-z+")]
+        
         public string Prezime { get; set; }
         public string Adresa { get; set; }
         public string Grad { get; set; }

@@ -685,9 +685,9 @@ namespace IspitMVCProjekat.Tests
 
     public class ControllerTests : IClassFixture<WebApplicationFactory<IspitMVCProjekat.Startup>>
     {
-        private readonly WebApplicationFactory<IspitMVCProjekat.Startup> _factory;
+        private readonly WebApplicationFactory<Startup> _factory;
 
-        public ControllerTests(WebApplicationFactory<IspitMVCProjekat.Startup> factory)
+        public ControllerTests(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
         }

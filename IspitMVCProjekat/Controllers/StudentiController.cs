@@ -33,16 +33,19 @@ namespace IspitMVCProjekat.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("BrojIndexa,Ime,Prezime,Adresa,Grad")] Student student)
         {
+            if(_repo.StudentExists(student.BrojIndexa))
+            {
+                ModelState.AddModelError("","Broj indexa vec postoji");
+            }
+
             if (ModelState.IsValid)
             {
-                if (!_repo.StudentExists(student.BrojIndexa))
-                {
                     _repo.Create(student);
                     return RedirectToAction(nameof(Index));
-                }
 
             }
-            return View("ErrorInsertingStudent");
+            
+            return View();
 
         }
 
