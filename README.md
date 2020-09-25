@@ -1,4 +1,3 @@
-# StudentExams
 
 Application developed in ASP.NET Core 3.1 with CRUD operations for managing students exams and master-detail page for Student.
 
